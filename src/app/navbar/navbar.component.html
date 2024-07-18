@@ -1,0 +1,83 @@
+<div id="top">
+  <nav id="title" routerLink="">{{ title }}</nav>
+  <div [ngSwitch]="mobile">
+    <div *ngSwitchCase="true" class="menu-container">
+      <div id="upper-menu" (click)="flipMenu()">
+        <div id="filler"></div>
+        <div id="menu-toggler"></div>
+      </div>
+      <div
+        *ngIf="menuVisible"
+        class="menu-dropdown"
+        aria-labelledby="dropdownMenuButton1"
+      >
+        <div>
+          <a class="dropdown-item" routerLink="products">Products</a>
+        </div>
+        <hr />
+        <div><a class="dropdown-item" routerLink="gallary">Gallary</a></div>
+        <hr />
+        <div><a class="dropdown-item" routerLink="about">About</a></div>
+        <hr />
+        <div>
+          <a class="dropdown-item" routerLink="calculator"
+            >Barn Door Calculator</a
+          >
+        </div>
+        <hr />
+        <div><a class="dropdown-item" routerLink="reviews">Reviews</a></div>
+        <hr />
+        <div><a class="dropdown-item" routerLink="login">Signup/Login</a></div>
+      </div>
+    </div>
+    <div *ngSwitchDefault class="horizontal-menu">
+      <div>
+        <nav
+          class="top-menu-item"
+          routerLink="products"
+          routerLinkActive="active"
+        >
+          Products
+        </nav>
+      </div>
+      <div>
+        <nav
+          class="top-menu-item"
+          routerLink="gallary"
+          routerLinkActive="active"
+        >
+          Gallary
+        </nav>
+      </div>
+      <div>
+        <nav class="top-menu-item" routerLink="about" routerLinkActive="active">
+          About
+        </nav>
+      </div>
+      <div>
+        <nav
+          class="top-menu-item"
+          routerLink="calculator"
+          routerLinkActive="active"
+        >
+          Barn Door Calculator
+        </nav>
+      </div>
+      <div>
+        <nav
+          class="top-menu-item"
+          routerLink="reviews"
+          routerLinkActive="active"
+        >
+          Reviews
+        </nav>
+      </div>
+      <div>
+        <nav class="top-menu-item" routerLink="login" routerLinkActive="active">
+          Signup/Login
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
