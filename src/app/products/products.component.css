@@ -1,4 +1,105 @@
-p {
+#page-info-box {
+  background-color: rgb(184, 190, 197);
+  width: 60%;
+  border-bottom-right-radius: 10%;
+  border-top: black;
+  border-width: 2px;
+  border-style: solid;
+  z-index: 1;
+}
+
+#products-box {
+  grid-column: 1;
+  grid-row: 1;
   width: 100%;
-  background-color: green;
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  margin: 2px;
+}
+
+#page-name {
+  color: #af4444;
+  padding: 20px;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+#product-message {
+  color: #e56666;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.product-div {
+  display: inline;
+  overflow: hidden;
+  width: 23%;
+  background-color: #e56666;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 5px;
+  border-top: #af4444;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.door-photo {
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  object-position: center;
+}
+
+#products-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2%;
+  margin: auto;
+  width: 100%;
+}
+
+.product-div:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.door-name {
+  color: rgb(227, 227, 227);
+  font-weight: bold;
+}
+
+.price {
+  color: rgb(227, 227, 227);
+}
+
+/* #page-container {
+  display: grid;
+} */
+
+/* #purchase-box {
+  grid-column: 1;
+  grid-row: 1;
+  margin: auto;
+  margin-top: 5%;
+  z-index: 2;
+  width: 50%;
+  height: 500px;
+  background-color: #af4444;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  overflow: hidden;
+} */
+
+@media (max-width: 850px) {
+  .product-div {
+    width: 100%;
+  }
 }

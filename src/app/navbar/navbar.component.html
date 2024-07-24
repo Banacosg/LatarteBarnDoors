@@ -12,22 +12,40 @@
         aria-labelledby="dropdownMenuButton1"
       >
         <div>
-          <a class="dropdown-item" routerLink="products">Products</a>
+          <a class="dropdown-item" routerLink="products" (click)="flipMenu()"
+            >Products</a
+          >
         </div>
         <hr />
-        <div><a class="dropdown-item" routerLink="gallary">Gallary</a></div>
-        <hr />
-        <div><a class="dropdown-item" routerLink="about">About</a></div>
+        <div>
+          <a class="dropdown-item" routerLink="gallery" (click)="flipMenu()"
+            >Gallery</a
+          >
+        </div>
         <hr />
         <div>
-          <a class="dropdown-item" routerLink="calculator"
+          <a class="dropdown-item" routerLink="about" (click)="flipMenu()"
+            >About Us</a
+          >
+        </div>
+        <hr />
+        <div>
+          <a class="dropdown-item" routerLink="calculator" (click)="flipMenu()"
             >Barn Door Calculator</a
           >
         </div>
         <hr />
-        <div><a class="dropdown-item" routerLink="reviews">Reviews</a></div>
+        <div>
+          <a class="dropdown-item" routerLink="reviews" (click)="flipMenu()"
+            >Reviews</a
+          >
+        </div>
         <hr />
-        <div><a class="dropdown-item" routerLink="login">Signup/Login</a></div>
+        <div>
+          <a class="dropdown-item" routerLink="login" (click)="flipMenu()"
+            >Signup/Login</a
+          >
+        </div>
       </div>
     </div>
     <div *ngSwitchDefault class="horizontal-menu">
@@ -43,15 +61,15 @@
       <div>
         <nav
           class="top-menu-item"
-          routerLink="gallary"
+          routerLink="gallery"
           routerLinkActive="active"
         >
-          Gallary
+          Gallery
         </nav>
       </div>
       <div>
         <nav class="top-menu-item" routerLink="about" routerLinkActive="active">
-          About
+          About Us
         </nav>
       </div>
       <div>
@@ -80,4 +98,3 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>

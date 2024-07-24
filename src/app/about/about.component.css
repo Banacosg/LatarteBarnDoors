@@ -1,0 +1,48 @@
+#page-container {
+  min-height: 100vh;
+}
+
+#page-identifier {
+  width: 60%;
+  border-bottom-right-radius: 5%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  background-color: rgb(184, 190, 197);
+  display: flex;
+  flex-direction: column;
+}
+
+#page-title {
+  color: #af4444;
+  padding: 20px;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+#page-description {
+  color: #e56666;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#story-container {
+  background-color: rgb(184, 190, 197);
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#story-title {
+  color: #e56666;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+#story {
+  color: #af4444;
+  font-size: 18px;
+  font-weight: 600;
+}

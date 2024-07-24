@@ -1,1 +1,106 @@
-<p>calculator works!</p>
+<div id="page-container">
+  <div id="page-identifier">
+    <p id="page-title">Barn Door Calculator</p>
+    <hr />
+    <p id="page-description">
+      There are many variables that go into the price of our barn doors. To make
+      it easier to find the price of your barn door, use are handy calculator!
+    </p>
+  </div>
+  <div id="calculator-div">
+    <!-- <p class="text-white">{{ calculatorForm.value | json }}</p> -->
+    <form
+      [formGroup]="calculatorForm"
+      id="form-div"
+      (ngSubmit)="calculatePrice()"
+    >
+      <div
+        id="door-type-div"
+        class="relative z-0 w-full mb-1 group text-white font-bold"
+      >
+        Door Type
+
+        <fieldset class="flex flex-wrap flex-row items-center">
+          <div
+            class="flex items-center mb-1 w-24"
+            *ngFor="let door of doorTypes; index as i"
+          >
+            <div class="door-name-box">
+              <input
+                id="door-size-option"
+                type="radio"
+                value="{{ door.name }}"
+                name="name"
+                formControlName="name"
+                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600 accent-black"
+                checked
+                required
+              />
+              <label class="block ms-2 text-white font-medium" id="test">
+                {{ door.name }}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div id="bottom-forms">
+        <div
+          id="door-size-div"
+          class="relative z-0 w-full mb-1 group text-white font-bold"
+        >
+          Door Size
+
+          <fieldset class="flex flex-wrap flex-row">
+            <div
+              class="flex items-center mb-1 w-24"
+              *ngFor="let door of doorSizes"
+            >
+              <input
+                id="door-size-option"
+                type="radio"
+                value="{{ door }}"
+                name="size"
+                formControlName="size"
+                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600 accent-black"
+                checked
+                required
+              />
+              <label class="block ms-2 text-white font-medium" id="test">
+                {{ door }}
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div id="paint-div" class="flex items-top flex-column mb-4 form-item">
+          <p class="relative z-0 w-full mb-1 group text-white font-bold">
+            Painted
+          </p>
+          <div>
+            <input
+              id="default-checkbox"
+              type="checkbox"
+              formControlName="painted"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 accent-gray-300"
+            />
+            <label
+              for="default-checkbox"
+              class="ms-2 font-medium text-white dark:text-gray-300"
+              >Painted?</label
+            >
+          </div>
+        </div>
+      </div>
+      <button
+        [disabled]="calculatorForm.invalid"
+        type="submit"
+        id="sub-button"
+        class="text-white hover:bg-grey-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border-2 rounded-md border-white-900 border-solid hover:scale-105"
+      >
+        Calculate
+      </button>
+    </form>
+    <div id="result-div" class="font-bold text-2xl">
+      <p id="price-text">Door Price: ${{ doorPrice | number : "1.0-1" }}</p>
+    </div>
+  </div>
+</div>

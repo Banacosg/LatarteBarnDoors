@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { NgClass } from '@angular/common';
 import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
@@ -12,6 +12,7 @@ import { ProductsComponent } from '../products/products.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
 import { SignupComponent } from '../signup/signup.component';
 import { RouterOutlet } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -42,7 +43,7 @@ export class NavbarComponent {
   title: string;
   menuVisible: boolean = false;
   mobile: boolean = false;
-  constructor() {
+  constructor(@Inject(DOCUMENT) private _doc: Document) {
     this.appComponent = new AppComponent();
     this.title = this.appComponent?.getTitle();
   }
@@ -59,13 +60,16 @@ export class NavbarComponent {
     this.updateScreen();
   }
 
+  getWindow(): Window | null {
+    return this._doc.defaultView;
+  }
+
   updateScreen() {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 850) {
-        this.mobile = true;
-      } else {
-        this.mobile = false;
-      }
+    const windowTest = this.getWindow();
+    if (windowTest!.innerWidth < 850) {
+      this.mobile = true;
+    } else {
+      this.mobile = false;
     }
   }
   flipMenu() {

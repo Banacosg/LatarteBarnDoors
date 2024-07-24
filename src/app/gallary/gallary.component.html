@@ -1,1 +1,22 @@
-<p>gallary works!</p>
+<div id="page-container">
+  <div id="page-identifier">
+    <p id="page-title">Gallery</p>
+    <hr />
+    <p id="page-description">
+      This is a gallery of previous barn doors we've constructed. In addition,
+      there are some heart warming testimonials.
+    </p>
+  </div>
+  <div *ngFor="let item of gallery">
+    <div class="gallery-item">
+      <img src="{{ item.image }}" alt="{{ item.image }}" />
+      <div class="address-div">
+        <p>{{ item.city }},&nbsp;</p>
+        <p>{{ item.state }},&nbsp;</p>
+        <p>{{ item.country }}</p>
+      </div>
+      <hr />
+      <p class="item-desc">{{ item.description }}</p>
+    </div>
+  </div>
+</div>

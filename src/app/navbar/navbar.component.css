@@ -11,7 +11,7 @@
   padding: 0px;
   margin: 0px;
   color: #af4444;
-  font-size: 25px;
+  font-size: 23px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 10px;
@@ -56,12 +56,14 @@
   min-height: 50px;
   display: flex;
   flex-direction: column;
+  z-index: 10;
 }
 
 .menu-dropdown {
   visibility: visible;
   background-color: #af4444;
   border-radius: 2px;
+  z-index: 10;
 }
 
 hr {
@@ -89,6 +91,7 @@ hr {
   font-weight: bold;
   height: 50px;
   align-items: center;
+  z-index: 10;
 }
 
 .top-menu-item {
@@ -110,8 +113,5 @@ hr {
   #top {
     justify-content: left;
     align-items: center;
-  }
-  .active {
-    background-color: #e56666;
   }
 }
