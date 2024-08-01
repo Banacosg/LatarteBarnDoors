@@ -1,0 +1,13 @@
+{
+  "routes": [
+    "/about",
+    "/calculator",
+    "/gallery",
+    "/home",
+    "/login",
+    "/products",
+    "/products/add",
+    "/reviews",
+    "/signup"
+  ]
+}
