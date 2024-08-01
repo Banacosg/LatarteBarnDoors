@@ -102,8 +102,12 @@
   cursor: pointer;
 }
 
-#test {
-  color: white;
+.option-accent {
+  accent-color: #e56666;
+}
+
+.section-title-div {
+  display: flex;
 }
 
 @media (max-width: 850px) {

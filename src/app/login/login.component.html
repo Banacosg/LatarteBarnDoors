@@ -1,1 +1,97 @@
-<p>login works!</p>
+<div id="page-container">
+  <div id="login-box">
+    <div id="x-container">
+      <button id="exit" routerLink="/home">
+        <img src="../../assets/exit.png" alt="" />
+      </button>
+    </div>
+    <p id="login-title">Login</p>
+    <div id="form-width" *ngIf="!isSubmitted">
+      <form class="min-w-full" id="form" [formGroup]="loginData">
+        <div id="email-input">
+          <div class="relative z-0 w-full mb-2 group border-b-2 border-black">
+            <input
+              name="email"
+              formControlName="email"
+              class="block py-2.5 px-0 w-full text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+              email
+            />
+            <div
+              id="text-input-div"
+              class="block peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              <p>Email *&nbsp;</p>
+              <p
+                *ngIf="
+                  loginData.controls['email'].dirty &&
+                  loginData.controls['email'].invalid &&
+                  loginData.controls['email'].touched
+                "
+                class="text-red-700 block"
+              >
+                Must enter a valid email!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="border-b-2 border-black" id="password-input">
+          <div class="relative z-0 w-4/5 mb-2 group">
+            <input
+              #password
+              name="password"
+              type="password"
+              formControlName="password"
+              class="block py-2.5 px-0 w-full text-sm text-white-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              class="peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Password *</label
+            >
+          </div>
+          <button
+            #visImg
+            class="show-hide"
+            (click)="showPass(password, visImg)"
+          ></button>
+        </div>
+        <div id="login-modifiers">
+          <div id="remember-me">
+            <input id="remember-me-check" type="checkbox" />
+            <p id="remember-text">Remember me</p>
+          </div>
+          <div id="forgot-pass">
+            <nav
+              id="forgot-pass-nav"
+              routerLink="/signup"
+              routerLinkActive="active"
+            >
+              Forgot Password?
+            </nav>
+          </div>
+        </div>
+        <button
+          type="submit"
+          id="login-button"
+          class="text-white font-bold"
+          (click)="validateAccount()"
+          [disabled]="loginData.invalid"
+        >
+          Login
+        </button>
+      </form>
+      <div id="register" class="mt-5">
+        Don't have an account?&nbsp;
+        <nav id="sign-up-nav" routerLink="/signup" routerLinkActive="active">
+          Sign up
+        </nav>
+      </div>
+    </div>
+    <div id="successful-sign-in" *ngIf="isSubmitted">
+      <p>You've successfully signed in!</p>
+    </div>
+  </div>
+</div>

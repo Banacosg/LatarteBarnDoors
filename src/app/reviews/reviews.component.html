@@ -1,1 +1,58 @@
-<p>reviews works!</p>
+<div id="page-container">
+  <div id="page-identifier">
+    <div id="page-header">
+      <p id="page-title">Reviews</p>
+      <div class="stars-container">
+        <div class="star-hidder">
+          <img
+            class="star-img"
+            *ngFor="let tmp of [].constructor(5)"
+            src="../../assets/review (1).png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <p id="page-description">
+      Don't just take our word for how good our barn doors are. See what other
+      people have to say!
+    </p>
+  </div>
+  <div id="review-section">
+    <div class="review" *ngFor="let review of reviews; index as i">
+      <div class="profile">
+        <div class="profile-header">
+          <div class="profile-identifier">
+            <img class="profile-img" src="{{ review.photo }}" alt="" />
+            <p class="name">{{ review.name }}</p>
+          </div>
+
+          <div class="stars-container">
+            <div class="star-hidder">
+              <img
+                class="star-img"
+                *ngFor="let tmp of [].constructor(review.stars)"
+                src="../../assets/review (1).png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="comment-area">
+          <div class="comment" #curCommentContainer>
+            <!-- Don't have any other elements in here-->
+          </div>
+          <div class="show-comment">
+            <button
+              #curButton
+              class="show-comment-button"
+              (click)="addDynamicComponent(curCommentContainer, review.comment)"
+              (click)="toggleCommentButton(curButton)"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

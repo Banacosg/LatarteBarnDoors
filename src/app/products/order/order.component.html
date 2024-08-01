@@ -27,21 +27,28 @@
           </p>
         </div>
         <div class="relative z-0 w-full mb-1 group text-white font-bold">
-          Door Size
-
+          <div class="section-title-div">
+            <p>Door Size &nbsp;</p>
+            <p
+              *ngIf="!orderForm.controls['size'].dirty && attemptedPlaceOrder"
+              class="text-orange-300 block w-3/6 font-normal text-sm"
+            >
+              Must select size!
+            </p>
+          </div>
           <fieldset class="flex flex-wrap flex-row">
             <div
               class="flex items-center mb-1 w-24"
               *ngFor="let door of doorSizes"
             >
               <input
-                id="door-size-option"
                 type="radio"
                 value="{{ door }}"
                 name="size"
                 formControlName="size"
-                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                class="option-accent w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
                 checked
+                required
               />
               <label class="block ms-2 text-white font-medium" id="test">
                 {{ door }}
@@ -51,7 +58,17 @@
         </div>
 
         <div class="relative z-0 w-full mb-1 group text-white font-bold">
-          Opening Mechanism
+          <div class="section-title-div">
+            <p>Opening Mechanism &nbsp;</p>
+            <p
+              *ngIf="
+                !orderForm.controls['openingMech'].dirty && attemptedPlaceOrder
+              "
+              class="text-orange-300 block w-3/6 font-normal text-sm"
+            >
+              Must select mechanism!
+            </p>
+          </div>
           <fieldset class="flex flex-wrap flex-row">
             <div
               class="flex items-center mb-1 w-24"
@@ -63,7 +80,7 @@
                 value="{{ opener }}"
                 name="openingMech"
                 formControlName="openingMech"
-                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                class="option-accent w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
                 checked
               />
               <label class="block ms-2 text-white font-medium" id="test">
@@ -73,7 +90,17 @@
           </fieldset>
         </div>
         <div class="relative z-0 w-full mb-1 group text-white font-bold">
-          Wood Type
+          <div class="section-title-div">
+            <p>Wood Type &nbsp;</p>
+            <p
+              *ngIf="
+                !orderForm.controls['woodType'].dirty && attemptedPlaceOrder
+              "
+              class="text-orange-300 block w-3/6 font-normal text-sm"
+            >
+              Must select wood type!
+            </p>
+          </div>
           <fieldset class="flex flex-wrap flex-row">
             <div
               class="flex items-center mb-1 w-24"
@@ -85,7 +112,7 @@
                 value="{{ wood }}"
                 name="woodType"
                 formControlName="woodType"
-                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                class="option-accent w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
                 checked
               />
               <label class="block ms-2 text-white font-medium" id="test">
@@ -95,7 +122,17 @@
           </fieldset>
         </div>
         <div class="relative z-0 w-full mb-1 group text-white font-bold">
-          Painted?
+          <div class="section-title-div">
+            <p>Painted? &nbsp;</p>
+            <p
+              *ngIf="
+                !orderForm.controls['painted'].dirty && attemptedPlaceOrder
+              "
+              class="text-orange-300 block w-3/6 font-normal text-sm"
+            >
+              Must select painted!
+            </p>
+          </div>
           <fieldset class="flex flex-wrap flex-row">
             <div class="flex items-center mb-1 w-24" *ngFor="let option of YN">
               <input
@@ -104,7 +141,7 @@
                 value="{{ option }}"
                 name="painted"
                 formControlName="painted"
-                class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+                class="option-accent w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
                 checked
               />
               <label class="block ms-2 text-white font-medium" id="test">
@@ -126,7 +163,17 @@
           <label
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-white font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Address</label
+            ><div class="section-title-div">
+              <p>Address</p>
+              <p
+                class="block text-orange-300 w-5/6 font-normal text-sm"
+                *ngIf="
+                  !orderForm.controls['address'].dirty && attemptedPlaceOrder
+                "
+              >
+                &nbsp;Field required!
+              </p>
+            </div></label
           >
         </div>
         <div class="relative z-0 w-full mb-2 group border-b-2 border-white-900">
@@ -141,7 +188,15 @@
           <label
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-white font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >City</label
+            ><div class="section-title-div">
+              <p>City</p>
+              <p
+                class="block text-orange-300 w-5/6 font-normal text-sm"
+                *ngIf="!orderForm.controls['city'].dirty && attemptedPlaceOrder"
+              >
+                &nbsp;Field required!
+              </p>
+            </div></label
           >
         </div>
         <div class="relative z-0 w-full mb-2 group border-b-2 border-white-900">
@@ -156,7 +211,17 @@
           <label
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-white font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >State</label
+            ><div class="section-title-div">
+              <p>State</p>
+              <p
+                class="block text-orange-300 w-5/6 font-normal text-sm"
+                *ngIf="
+                  !orderForm.controls['state'].dirty && attemptedPlaceOrder
+                "
+              >
+                &nbsp;Field required!
+              </p>
+            </div></label
           >
         </div>
         <div class="relative z-0 w-full mb-2 group border-b-2 border-white-900">
@@ -171,7 +236,17 @@
           <label
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-white font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Country</label
+            ><div class="section-title-div">
+              <p>Country</p>
+              <p
+                class="block text-orange-300 w-5/6 font-normal text-sm"
+                *ngIf="
+                  !orderForm.controls['country'].dirty && attemptedPlaceOrder
+                "
+              >
+                &nbsp;Field required!
+              </p>
+            </div></label
           >
         </div>
         <div class="relative z-0 w-full mb-2 group border-b-2 border-white-900">
@@ -186,7 +261,17 @@
           <label
             for="floating_email"
             class="peer-focus:font-medium absolute text-sm text-white font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Zipcode</label
+            ><div class="section-title-div">
+              <p>Zipcode</p>
+              <p
+                class="block text-orange-300 w-5/6 font-normal text-sm"
+                *ngIf="
+                  !orderForm.controls['zipcode'].dirty && attemptedPlaceOrder
+                "
+              >
+                &nbsp;Field required!
+              </p>
+            </div></label
           >
         </div>
         <button

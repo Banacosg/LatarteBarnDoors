@@ -29,6 +29,7 @@ import {
 export class OrderComponent implements OnInit {
   curDoor: Product = { photo: '', name: '', price: 0 };
   doorSelected: boolean = false;
+  attemptedPlaceOrder = false;
   subscription: Subscription;
   orderForm!: FormGroup;
   doorSizes: String[] = [];
@@ -85,9 +86,13 @@ export class OrderComponent implements OnInit {
   }
 
   addOrder() {
-    this.isShowOrder = false;
-    this.orderPlaced = true;
-    console.log(this.orderForm.value);
+    this.attemptedPlaceOrder = true;
+    if (this.orderForm.valid) {
+      this.isShowOrder = false;
+      this.orderPlaced = true;
+    } else {
+      alert('Missing required fields!');
+    }
   }
 
   showOrderForm() {

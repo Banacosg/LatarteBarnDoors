@@ -1,1 +1,144 @@
-<p>signup works!</p>
+<div id="page-container">
+  <div id="register-box">
+    <div id="x-container">
+      <button id="exit" routerLink="/home">
+        <img src="../../assets/exit.png" alt="" />
+      </button>
+    </div>
+    <p id="register-title">Register</p>
+    <div id="form-width">
+      <form [formGroup]="registerForm" id="form">
+        <div class="relative z-0 w-full mb-2 group border-b-2 border-black">
+          <input
+            id="input"
+            type="text"
+            class="block py-2.5 w-full text-sm bg-transparent border-0 appearance-none outline-none ring-0 peer"
+            formControlName="firstName"
+            placeholder=" "
+            minlength="2"
+            maxlength="100"
+            required
+          />
+          <div
+            class="peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 form-label"
+          >
+            <p>First Name *&nbsp;</p>
+            <p
+              *ngIf="
+                registerForm.controls['firstName'].dirty &&
+                registerForm.controls['firstName'].touched &&
+                registerForm.controls['firstName'].invalid
+              "
+              class="block text-red-700"
+            >
+              Name must be &#62; 1 characters
+            </p>
+          </div>
+        </div>
+        <div
+          id="last"
+          class="relative z-0 w-full mb-2 group border-b-2 border-black"
+        >
+          <input
+            type="text"
+            class="block py-2.5 w-full text-sm bg-transparent border-0 appearance-none outline-none ring-0 peer"
+            formControlName="lastName"
+            placeholder=" "
+            minlength="2"
+            maxlength="100"
+            required
+          />
+          <div
+            class="peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 form-label"
+          >
+            <p>First Name *&nbsp;</p>
+            <p
+              *ngIf="
+                registerForm.controls['lastName'].dirty &&
+                registerForm.controls['lastName'].touched &&
+                registerForm.controls['lastName'].invalid
+              "
+              class="block text-red-700"
+            >
+              Name must be &#62; 1 characters
+            </p>
+          </div>
+        </div>
+        <div
+          id="email"
+          class="relative z-0 w-full mb-2 group border-b-2 border-black"
+        >
+          <input
+            type="text"
+            class="block py-2.5 w-full text-sm bg-transparent border-0 appearance-none outline-none ring-0 peer"
+            formControlName="email"
+            placeholder=" "
+            email
+            required
+          />
+          <div
+            class="peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 form-label"
+          >
+            <p>Email *&nbsp;</p>
+            <p
+              *ngIf="
+                registerForm.controls['email'].dirty &&
+                registerForm.controls['email'].touched &&
+                registerForm.controls['email'].invalid
+              "
+              class="block text-red-700"
+            >
+              Must be valid email
+            </p>
+          </div>
+        </div>
+        <div
+          id="password"
+          class="relative z-0 w-full mb-2 group border-b-2 border-black"
+        >
+          <input
+            type="password"
+            class="block py-2.5 w-full text-sm bg-transparent border-0 appearance-none outline-none ring-0 peer"
+            formControlName="password"
+            placeholder=" "
+            required
+          />
+          <label
+            class="peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Password *</label
+          >
+        </div>
+        <div
+          id="password-check"
+          class="relative z-0 w-full mb-2 group border-b-2 border-black"
+        >
+          <input
+            type="password"
+            class="block py-2.5 w-full text-sm bg-transparent border-0 appearance-none outline-none ring-0 peer"
+            formControlName="passwordCheck"
+            placeholder=" "
+            required
+          />
+          <label
+            class="peer-focus:font-medium absolute text-sm text-black font-bold duration-300 transform -translate-y-6 scale-75 top-4 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >Confirm Password *</label
+          >
+        </div>
+        <button
+          id="submit"
+          (click)="signup()"
+          [disabled]="registerForm.invalid"
+          routerLink="/login"
+        >
+          Signup
+        </button>
+        <div
+          class="text-red-700"
+          *ngIf="registerForm?.errors?.['mismatch'] && registerForm.controls['password'].touched && registerForm.controls['passwordCheck'].touched"
+        >
+          Passwords must match!
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

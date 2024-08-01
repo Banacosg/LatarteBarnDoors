@@ -102,4 +102,8 @@ hr {
   .product-div {
     width: 100%;
   }
+  #page-info-box {
+    width: 100%;
+    border-bottom-right-radius: 0px;
+  }
 }
