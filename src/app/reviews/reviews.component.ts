@@ -24,8 +24,6 @@ export class ReviewsComponent implements OnInit {
       //If there is already a comment
       const para = document.createElement('p');
       para.innerText = comment;
-      // const node = document.createTextNode(comment);
-      // para.appendChild(node);
       el.appendChild(para);
     } else {
       el.innerHTML = '';
